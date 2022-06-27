@@ -8,9 +8,9 @@ function random() {
 }
 
 document.querySelector(".check").addEventListener("click", function () {
-    let guessNo = document.querySelector(".guess").value;
-    if (guessNo == myNumber) {
-        changeValues(score, "Correct", "#60b347", myNumber);
+    let guessNo = Number(document.querySelector(".guess").value);
+    if (guessNo === myNumber) {
+        changeValues(score, "Correct Number", "#60b347", myNumber);
         if (score > highScore) {
             highScore = score;
             document.querySelector(".highscore").innerText = `${score}`;
