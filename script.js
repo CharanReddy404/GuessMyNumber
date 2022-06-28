@@ -10,6 +10,7 @@ function random() {
 document.querySelector(".check").addEventListener("click", function () {
     if (score === 0) {
         changeValues(score, "Game Over", "red", myNumber);
+        toggleDisable(true);
         return;
     }
     let guessNo = Number(document.querySelector(".guess").value);
@@ -30,6 +31,7 @@ document.querySelector(".check").addEventListener("click", function () {
 
 document.querySelector(".again").addEventListener("click", function () {
     score = 20;
+    toggleDisable(false);
     myNumber = random();
     document.querySelector(".guess").value = "";
     changeValues(score, "Start guessing...", "#222", "?");
@@ -40,4 +42,9 @@ function changeValues(setScore, setMsg, setBody, setNumber) {
     document.querySelector(".message").innerText = setMsg;
     document.querySelector("body").style.backgroundColor = setBody;
     document.querySelector(".number").innerText = setNumber;
+}
+
+function toggleDisable(value) {
+    document.querySelector(".guess").disabled = value;
+    document.querySelector(".check").disabled = value;
 }
